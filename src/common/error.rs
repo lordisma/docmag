@@ -11,6 +11,7 @@ use std::fmt::Display;
 pub enum WriteError {
     /// Placeholder for a generic error.
     TeaPot,
+    NormalizationError(String),
 }
 
 impl Display for WriteError {
@@ -20,3 +21,18 @@ impl Display for WriteError {
 }
 
 impl Error for WriteError {}
+
+#[derive(Debug)]
+pub enum DocumentError {
+    /// Placeholder for a generic error.
+    TeaPot,
+    NormalizationError(String),
+}
+
+impl Display for DocumentError {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "DocumentError: {:?}", self)
+    }
+}
+
+impl Error for DocumentError {}
